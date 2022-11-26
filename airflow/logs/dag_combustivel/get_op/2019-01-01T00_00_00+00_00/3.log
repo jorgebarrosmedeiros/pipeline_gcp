@@ -1,0 +1,121 @@
+[2022-10-05 23:48:15,747] {taskinstance.py:1037} INFO - Dependencies all met for <TaskInstance: dag_combustivel.get_op scheduled__2019-01-01T00:00:00+00:00 [queued]>
+[2022-10-05 23:48:15,756] {taskinstance.py:1037} INFO - Dependencies all met for <TaskInstance: dag_combustivel.get_op scheduled__2019-01-01T00:00:00+00:00 [queued]>
+[2022-10-05 23:48:15,757] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-05 23:48:15,758] {taskinstance.py:1244} INFO - Starting attempt 3 of 3
+[2022-10-05 23:48:15,759] {taskinstance.py:1245} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-05 23:48:15,787] {taskinstance.py:1264} INFO - Executing <Task(SimpleHttpOperator): get_op> on 2019-01-01 00:00:00+00:00
+[2022-10-05 23:48:15,799] {standard_task_runner.py:52} INFO - Started process 7223 to run task
+[2022-10-05 23:48:15,804] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'dag_combustivel', 'get_op', 'scheduled__2019-01-01T00:00:00+00:00', '--job-id', '164', '--raw', '--subdir', 'DAGS_FOLDER/dag_combustive.py', '--cfg-path', '/tmp/tmpeidfpe_3', '--error-file', '/tmp/tmp3tzdh_q_']
+[2022-10-05 23:48:15,806] {standard_task_runner.py:77} INFO - Job 164: Subtask get_op
+[2022-10-05 23:48:15,873] {logging_mixin.py:109} INFO - Running <TaskInstance: dag_combustivel.get_op scheduled__2019-01-01T00:00:00+00:00 [running]> on host 1445d51ba90b
+[2022-10-05 23:48:15,932] {taskinstance.py:1431} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=dag_combustivel
+AIRFLOW_CTX_TASK_ID=get_op
+AIRFLOW_CTX_EXECUTION_DATE=2019-01-01T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2019-01-01T00:00:00+00:00
+[2022-10-05 23:48:15,934] {http.py:104} INFO - Calling HTTP method
+[2022-10-05 23:48:15,944] {base.py:79} INFO - Using connection to: id: stack-data-pipeline01. Host: https://stack-data-pipeline01-v6sq26umdq-uc.a.run.app, Port: None, Schema: , Login: , Password: None, extra: {}
+[2022-10-05 23:48:15,947] {http.py:129} INFO - Sending 'POST' to url: https://stack-data-pipeline01-v6sq26umdq-uc.a.run.app/download_combustivel
+[2022-10-06 00:04:43,046] {local_task_job.py:212} WARNING - State of this instance has been externally set to restarting. Terminating instance.
+[2022-10-06 00:04:43,053] {process_utils.py:124} INFO - Sending Signals.SIGTERM to group 7223. PIDs of all processes in the group: [7223]
+[2022-10-06 00:04:43,054] {process_utils.py:75} INFO - Sending the signal Signals.SIGTERM to group 7223
+[2022-10-06 00:04:43,055] {taskinstance.py:1413} ERROR - Received SIGTERM. Terminating subprocesses.
+[2022-10-06 00:04:43,070] {taskinstance.py:1718} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1334, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1460, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1516, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/operators/http.py", line 106, in execute
+    response = http.run(self.endpoint, self.data, self.headers, self.extra_options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/hooks/http.py", line 130, in run
+    return self.run_and_check(session, prepped_request, extra_options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/hooks/http.py", line 180, in run_and_check
+    response = session.send(prepped_request, **send_kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/adapters.py", line 450, in send
+    timeout=timeout
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/local/lib/python3.7/http/client.py", line 1373, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.7/http/client.py", line 319, in begin
+    version, status, reason = self._read_status()
+  File "/usr/local/lib/python3.7/http/client.py", line 280, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/local/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/local/lib/python3.7/ssl.py", line 1071, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/local/lib/python3.7/ssl.py", line 929, in read
+    return self._sslobj.read(len, buffer)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1415, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2022-10-06 00:04:43,078] {taskinstance.py:1282} INFO - Marking task as UP_FOR_RETRY. dag_id=dag_combustivel, task_id=get_op, execution_date=20190101T000000, start_date=20221005T234815, end_date=20221006T000443
+[2022-10-06 00:04:43,092] {standard_task_runner.py:92} ERROR - Failed to execute job 164 for task get_op
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/task/task_runner/standard_task_runner.py", line 85, in _start_by_fork
+    args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 298, in task_run
+    _run_task_by_selected_method(args, dag, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 107, in _run_task_by_selected_method
+    _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 184, in _run_raw_task
+    error_file=args.error_file,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 70, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1334, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1460, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1516, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/operators/http.py", line 106, in execute
+    response = http.run(self.endpoint, self.data, self.headers, self.extra_options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/hooks/http.py", line 130, in run
+    return self.run_and_check(session, prepped_request, extra_options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/hooks/http.py", line 180, in run_and_check
+    response = session.send(prepped_request, **send_kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/adapters.py", line 450, in send
+    timeout=timeout
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/local/lib/python3.7/http/client.py", line 1373, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.7/http/client.py", line 319, in begin
+    version, status, reason = self._read_status()
+  File "/usr/local/lib/python3.7/http/client.py", line 280, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/local/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/local/lib/python3.7/ssl.py", line 1071, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/local/lib/python3.7/ssl.py", line 929, in read
+    return self._sslobj.read(len, buffer)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1415, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2022-10-06 00:04:43,152] {process_utils.py:70} INFO - Process psutil.Process(pid=7223, status='terminated', exitcode=1, started='23:48:14') (7223) terminated with exit code 1

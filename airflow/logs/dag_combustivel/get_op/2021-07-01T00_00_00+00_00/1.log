@@ -1,0 +1,24 @@
+[2022-10-05 18:00:45,742] {taskinstance.py:1037} INFO - Dependencies all met for <TaskInstance: dag_combustivel.get_op scheduled__2021-07-01T00:00:00+00:00 [queued]>
+[2022-10-05 18:00:45,779] {taskinstance.py:1037} INFO - Dependencies all met for <TaskInstance: dag_combustivel.get_op scheduled__2021-07-01T00:00:00+00:00 [queued]>
+[2022-10-05 18:00:45,781] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-05 18:00:45,784] {taskinstance.py:1244} INFO - Starting attempt 1 of 1
+[2022-10-05 18:00:45,788] {taskinstance.py:1245} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-05 18:00:45,823] {taskinstance.py:1264} INFO - Executing <Task(SimpleHttpOperator): get_op> on 2021-07-01 00:00:00+00:00
+[2022-10-05 18:00:45,833] {standard_task_runner.py:52} INFO - Started process 23200 to run task
+[2022-10-05 18:00:45,845] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'dag_combustivel', 'get_op', 'scheduled__2021-07-01T00:00:00+00:00', '--job-id', '114', '--raw', '--subdir', 'DAGS_FOLDER/dag_combustive.py', '--cfg-path', '/tmp/tmpl0mtxsv3', '--error-file', '/tmp/tmp_d2r_ru_']
+[2022-10-05 18:00:45,847] {standard_task_runner.py:77} INFO - Job 114: Subtask get_op
+[2022-10-05 18:00:46,042] {logging_mixin.py:109} INFO - Running <TaskInstance: dag_combustivel.get_op scheduled__2021-07-01T00:00:00+00:00 [running]> on host 1445d51ba90b
+[2022-10-05 18:00:46,264] {taskinstance.py:1431} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=dag_combustivel
+AIRFLOW_CTX_TASK_ID=get_op
+AIRFLOW_CTX_EXECUTION_DATE=2021-07-01T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2021-07-01T00:00:00+00:00
+[2022-10-05 18:00:46,268] {http.py:104} INFO - Calling HTTP method
+[2022-10-05 18:00:46,300] {base.py:79} INFO - Using connection to: id: stack-data-pipeline01. Host: https://stack-data-pipeline01-v6sq26umdq-uc.a.run.app, Port: None, Schema: , Login: , Password: None, extra: {}
+[2022-10-05 18:00:46,303] {http.py:129} INFO - Sending 'POST' to url: https://stack-data-pipeline01-v6sq26umdq-uc.a.run.app/download_combustivel
+[2022-10-05 18:04:17,887] {taskinstance.py:1282} INFO - Marking task as SUCCESS. dag_id=dag_combustivel, task_id=get_op, execution_date=20210701T000000, start_date=20221005T180045, end_date=20221005T180417
+[2022-10-05 18:04:17,955] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-10-05 18:04:18,024] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check

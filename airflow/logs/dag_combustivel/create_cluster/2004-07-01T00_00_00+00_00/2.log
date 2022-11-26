@@ -1,0 +1,23 @@
+[2022-11-02 00:48:36,373] {taskinstance.py:1037} INFO - Dependencies all met for <TaskInstance: dag_combustivel.create_cluster scheduled__2004-07-01T00:00:00+00:00 [queued]>
+[2022-11-02 00:48:36,412] {taskinstance.py:1037} INFO - Dependencies all met for <TaskInstance: dag_combustivel.create_cluster scheduled__2004-07-01T00:00:00+00:00 [queued]>
+[2022-11-02 00:48:36,415] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-02 00:48:36,416] {taskinstance.py:1244} INFO - Starting attempt 2 of 2
+[2022-11-02 00:48:36,425] {taskinstance.py:1245} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-02 00:48:36,462] {taskinstance.py:1264} INFO - Executing <Task(DataprocCreateClusterOperator): create_cluster> on 2004-07-01 00:00:00+00:00
+[2022-11-02 00:48:36,474] {standard_task_runner.py:52} INFO - Started process 2860 to run task
+[2022-11-02 00:48:36,495] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'dag_combustivel', 'create_cluster', 'scheduled__2004-07-01T00:00:00+00:00', '--job-id', '234', '--raw', '--subdir', 'DAGS_FOLDER/dag_combustivel.py', '--cfg-path', '/tmp/tmp2xv9lr0a', '--error-file', '/tmp/tmp_uoywxwt']
+[2022-11-02 00:48:36,502] {standard_task_runner.py:77} INFO - Job 234: Subtask create_cluster
+[2022-11-02 00:48:36,716] {logging_mixin.py:109} INFO - Running <TaskInstance: dag_combustivel.create_cluster scheduled__2004-07-01T00:00:00+00:00 [running]> on host 44262508447e
+[2022-11-02 00:48:36,901] {taskinstance.py:1431} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=dag_combustivel
+AIRFLOW_CTX_TASK_ID=create_cluster
+AIRFLOW_CTX_EXECUTION_DATE=2004-07-01T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2004-07-01T00:00:00+00:00
+[2022-11-02 00:48:36,904] {dataproc.py:625} INFO - Creating cluster: stack-data-pipeline
+[2022-11-02 00:51:37,519] {dataproc.py:569} INFO - Cluster created.
+[2022-11-02 00:51:37,559] {taskinstance.py:1282} INFO - Marking task as SUCCESS. dag_id=dag_combustivel, task_id=create_cluster, execution_date=20040701T000000, start_date=20221102T004836, end_date=20221102T005137
+[2022-11-02 00:51:37,635] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-11-02 00:51:37,680] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check

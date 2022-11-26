@@ -1,0 +1,23 @@
+[2022-10-05 17:09:46,471] {taskinstance.py:1037} INFO - Dependencies all met for <TaskInstance: dag_combustivel.delete_cluster scheduled__2017-01-01T00:00:00+00:00 [queued]>
+[2022-10-05 17:09:46,483] {taskinstance.py:1037} INFO - Dependencies all met for <TaskInstance: dag_combustivel.delete_cluster scheduled__2017-01-01T00:00:00+00:00 [queued]>
+[2022-10-05 17:09:46,485] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-05 17:09:46,486] {taskinstance.py:1244} INFO - Starting attempt 1 of 1
+[2022-10-05 17:09:46,487] {taskinstance.py:1245} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-05 17:09:46,506] {taskinstance.py:1264} INFO - Executing <Task(DataprocDeleteClusterOperator): delete_cluster> on 2017-01-01 00:00:00+00:00
+[2022-10-05 17:09:46,514] {standard_task_runner.py:52} INFO - Started process 20795 to run task
+[2022-10-05 17:09:46,518] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'dag_combustivel', 'delete_cluster', 'scheduled__2017-01-01T00:00:00+00:00', '--job-id', '77', '--raw', '--subdir', 'DAGS_FOLDER/dag_combustive.py', '--cfg-path', '/tmp/tmp9762bpg7', '--error-file', '/tmp/tmpn5dz4nj1']
+[2022-10-05 17:09:46,520] {standard_task_runner.py:77} INFO - Job 77: Subtask delete_cluster
+[2022-10-05 17:09:46,592] {logging_mixin.py:109} INFO - Running <TaskInstance: dag_combustivel.delete_cluster scheduled__2017-01-01T00:00:00+00:00 [running]> on host 1445d51ba90b
+[2022-10-05 17:09:46,657] {taskinstance.py:1431} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=dag_combustivel
+AIRFLOW_CTX_TASK_ID=delete_cluster
+AIRFLOW_CTX_EXECUTION_DATE=2017-01-01T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2017-01-01T00:00:00+00:00
+[2022-10-05 17:09:46,671] {dataproc.py:863} INFO - Deleting cluster: dataproc-cluster-stack-data-pipeline01
+[2022-10-05 17:11:04,603] {dataproc.py:875} INFO - Cluster deleted.
+[2022-10-05 17:11:04,628] {taskinstance.py:1282} INFO - Marking task as SUCCESS. dag_id=dag_combustivel, task_id=delete_cluster, execution_date=20170101T000000, start_date=20221005T170946, end_date=20221005T171104
+[2022-10-05 17:11:04,671] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-10-05 17:11:04,746] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check

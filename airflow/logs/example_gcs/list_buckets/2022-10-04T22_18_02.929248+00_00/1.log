@@ -1,0 +1,73 @@
+[2022-10-04 22:18:08,291] {taskinstance.py:1037} INFO - Dependencies all met for <TaskInstance: example_gcs.list_buckets manual__2022-10-04T22:18:02.929248+00:00 [queued]>
+[2022-10-04 22:18:08,341] {taskinstance.py:1037} INFO - Dependencies all met for <TaskInstance: example_gcs.list_buckets manual__2022-10-04T22:18:02.929248+00:00 [queued]>
+[2022-10-04 22:18:08,351] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-04 22:18:08,365] {taskinstance.py:1244} INFO - Starting attempt 1 of 1
+[2022-10-04 22:18:08,379] {taskinstance.py:1245} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-04 22:18:08,676] {taskinstance.py:1264} INFO - Executing <Task(GCSListObjectsOperator): list_buckets> on 2022-10-04 22:18:02.929248+00:00
+[2022-10-04 22:18:08,703] {standard_task_runner.py:52} INFO - Started process 3540 to run task
+[2022-10-04 22:18:08,714] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'example_gcs', 'list_buckets', 'manual__2022-10-04T22:18:02.929248+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/dag_teste.py', '--cfg-path', '/tmp/tmpm2yj4r4a', '--error-file', '/tmp/tmpjfcoh0xa']
+[2022-10-04 22:18:08,720] {standard_task_runner.py:77} INFO - Job 7: Subtask list_buckets
+[2022-10-04 22:18:08,881] {logging_mixin.py:109} INFO - Running <TaskInstance: example_gcs.list_buckets manual__2022-10-04T22:18:02.929248+00:00 [running]> on host 1445d51ba90b
+[2022-10-04 22:18:09,014] {taskinstance.py:1431} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=example_gcs
+AIRFLOW_CTX_TASK_ID=list_buckets
+AIRFLOW_CTX_EXECUTION_DATE=2022-10-04T22:18:02.929248+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-10-04T22:18:02.929248+00:00
+[2022-10-04 22:18:09,057] {taskinstance.py:1718} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1334, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1460, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1516, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/google/cloud/operators/gcs.py", line 252, in execute
+    impersonation_chain=self.impersonation_chain,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/google/cloud/hooks/gcs.py", line 151, in __init__
+    impersonation_chain=impersonation_chain,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/google/common/hooks/base_google.py", line 217, in __init__
+    self.extras = self.get_connection(self.gcp_conn_id).extra_dejson  # type: Dict
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/base.py", line 68, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/connection.py", line 410, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `google_cloud_default` isn't defined
+[2022-10-04 22:18:09,086] {taskinstance.py:1282} INFO - Marking task as FAILED. dag_id=example_gcs, task_id=list_buckets, execution_date=20221004T221802, start_date=20221004T221808, end_date=20221004T221809
+[2022-10-04 22:18:09,132] {standard_task_runner.py:92} ERROR - Failed to execute job 7 for task list_buckets
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/task/task_runner/standard_task_runner.py", line 85, in _start_by_fork
+    args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 298, in task_run
+    _run_task_by_selected_method(args, dag, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 107, in _run_task_by_selected_method
+    _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 184, in _run_raw_task
+    error_file=args.error_file,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 70, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1334, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1460, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1516, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/google/cloud/operators/gcs.py", line 252, in execute
+    impersonation_chain=self.impersonation_chain,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/google/cloud/hooks/gcs.py", line 151, in __init__
+    impersonation_chain=impersonation_chain,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/google/common/hooks/base_google.py", line 217, in __init__
+    self.extras = self.get_connection(self.gcp_conn_id).extra_dejson  # type: Dict
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/base.py", line 68, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/connection.py", line 410, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `google_cloud_default` isn't defined
+[2022-10-04 22:18:09,258] {local_task_job.py:154} INFO - Task exited with return code 1
+[2022-10-04 22:18:09,512] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

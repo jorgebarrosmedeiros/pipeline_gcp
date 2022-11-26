@@ -1,0 +1,92 @@
+[2022-11-16 21:51:00,279] {taskinstance.py:1037} INFO - Dependencies all met for <TaskInstance: dag_combustivel.get_op scheduled__2014-01-01T00:00:00+00:00 [queued]>
+[2022-11-16 21:51:00,310] {taskinstance.py:1037} INFO - Dependencies all met for <TaskInstance: dag_combustivel.get_op scheduled__2014-01-01T00:00:00+00:00 [queued]>
+[2022-11-16 21:51:00,310] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-16 21:51:00,311] {taskinstance.py:1244} INFO - Starting attempt 1 of 1
+[2022-11-16 21:51:00,311] {taskinstance.py:1245} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-16 21:51:00,376] {taskinstance.py:1264} INFO - Executing <Task(SimpleHttpOperator): get_op> on 2014-01-01 00:00:00+00:00
+[2022-11-16 21:51:00,390] {standard_task_runner.py:52} INFO - Started process 2324 to run task
+[2022-11-16 21:51:00,401] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'dag_combustivel', 'get_op', 'scheduled__2014-01-01T00:00:00+00:00', '--job-id', '45', '--raw', '--subdir', 'DAGS_FOLDER/dag_combustivel.py', '--cfg-path', '/tmp/tmpfmwdssqf', '--error-file', '/tmp/tmp4m5dqzl3']
+[2022-11-16 21:51:00,407] {standard_task_runner.py:77} INFO - Job 45: Subtask get_op
+[2022-11-16 21:51:00,584] {logging_mixin.py:109} INFO - Running <TaskInstance: dag_combustivel.get_op scheduled__2014-01-01T00:00:00+00:00 [running]> on host b2a62e76b908
+[2022-11-16 21:51:00,890] {taskinstance.py:1431} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=dag_combustivel
+AIRFLOW_CTX_TASK_ID=get_op
+AIRFLOW_CTX_EXECUTION_DATE=2014-01-01T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2014-01-01T00:00:00+00:00
+[2022-11-16 21:51:00,892] {http.py:104} INFO - Calling HTTP method
+[2022-11-16 21:51:00,940] {base.py:79} INFO - Using connection to: id: stack-data-pipeline. Host: https://data-pipeline-bootcamp-k4otesd7oa-uc.a.run.app, Port: None, Schema: , Login: admin, Password: ***, extra: {}
+[2022-11-16 21:51:00,946] {http.py:129} INFO - Sending 'POST' to url: https://data-pipeline-bootcamp-k4otesd7oa-uc.a.run.app/download_combustivel
+[2022-11-16 21:56:01,483] {http.py:142} ERROR - HTTP error: Gateway Timeout
+[2022-11-16 21:56:01,484] {http.py:143} ERROR - upstream request timeout
+[2022-11-16 21:56:01,498] {taskinstance.py:1718} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/hooks/http.py", line 140, in check_response
+    response.raise_for_status()
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/models.py", line 960, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 504 Server Error: Gateway Timeout for url: https://data-pipeline-bootcamp-k4otesd7oa-uc.a.run.app/download_combustivel
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1334, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1460, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1516, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/operators/http.py", line 106, in execute
+    response = http.run(self.endpoint, self.data, self.headers, self.extra_options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/hooks/http.py", line 130, in run
+    return self.run_and_check(session, prepped_request, extra_options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/hooks/http.py", line 183, in run_and_check
+    self.check_response(response)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/hooks/http.py", line 144, in check_response
+    raise AirflowException(str(response.status_code) + ":" + response.reason)
+airflow.exceptions.AirflowException: 504:Gateway Timeout
+[2022-11-16 21:56:01,507] {taskinstance.py:1282} INFO - Marking task as FAILED. dag_id=dag_combustivel, task_id=get_op, execution_date=20140101T000000, start_date=20221116T215100, end_date=20221116T215601
+[2022-11-16 21:56:01,525] {standard_task_runner.py:92} ERROR - Failed to execute job 45 for task get_op
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/hooks/http.py", line 140, in check_response
+    response.raise_for_status()
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/models.py", line 960, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 504 Server Error: Gateway Timeout for url: https://data-pipeline-bootcamp-k4otesd7oa-uc.a.run.app/download_combustivel
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/task/task_runner/standard_task_runner.py", line 85, in _start_by_fork
+    args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 298, in task_run
+    _run_task_by_selected_method(args, dag, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 107, in _run_task_by_selected_method
+    _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 184, in _run_raw_task
+    error_file=args.error_file,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 70, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1334, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1460, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1516, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/operators/http.py", line 106, in execute
+    response = http.run(self.endpoint, self.data, self.headers, self.extra_options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/hooks/http.py", line 130, in run
+    return self.run_and_check(session, prepped_request, extra_options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/hooks/http.py", line 183, in run_and_check
+    self.check_response(response)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/hooks/http.py", line 144, in check_response
+    raise AirflowException(str(response.status_code) + ":" + response.reason)
+airflow.exceptions.AirflowException: 504:Gateway Timeout
+[2022-11-16 21:56:01,563] {local_task_job.py:154} INFO - Task exited with return code 1
+[2022-11-16 21:56:01,612] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,74 @@
+[2022-10-05 13:16:29,351] {taskinstance.py:1037} INFO - Dependencies all met for <TaskInstance: dag_combustivel.get_op scheduled__2010-07-01T00:00:00+00:00 [queued]>
+[2022-10-05 13:16:29,362] {taskinstance.py:1037} INFO - Dependencies all met for <TaskInstance: dag_combustivel.get_op scheduled__2010-07-01T00:00:00+00:00 [queued]>
+[2022-10-05 13:16:29,363] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-05 13:16:29,363] {taskinstance.py:1244} INFO - Starting attempt 2 of 2
+[2022-10-05 13:16:29,364] {taskinstance.py:1245} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-05 13:16:29,374] {taskinstance.py:1264} INFO - Executing <Task(SimpleHttpOperator): get_op> on 2010-07-01 00:00:00+00:00
+[2022-10-05 13:16:29,379] {standard_task_runner.py:52} INFO - Started process 11358 to run task
+[2022-10-05 13:16:29,382] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'dag_combustivel', 'get_op', 'scheduled__2010-07-01T00:00:00+00:00', '--job-id', '45', '--raw', '--subdir', 'DAGS_FOLDER/dag_combustive.py', '--cfg-path', '/tmp/tmpxvg5yjaz', '--error-file', '/tmp/tmpfhqas5r4']
+[2022-10-05 13:16:29,384] {standard_task_runner.py:77} INFO - Job 45: Subtask get_op
+[2022-10-05 13:16:29,445] {logging_mixin.py:109} INFO - Running <TaskInstance: dag_combustivel.get_op scheduled__2010-07-01T00:00:00+00:00 [running]> on host 1445d51ba90b
+[2022-10-05 13:16:29,503] {taskinstance.py:1431} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=dag_combustivel
+AIRFLOW_CTX_TASK_ID=get_op
+AIRFLOW_CTX_EXECUTION_DATE=2010-07-01T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2010-07-01T00:00:00+00:00
+[2022-10-05 13:16:29,505] {http.py:104} INFO - Calling HTTP method
+[2022-10-05 13:16:29,526] {taskinstance.py:1718} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1334, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1460, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1516, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/operators/http.py", line 106, in execute
+    response = http.run(self.endpoint, self.data, self.headers, self.extra_options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/hooks/http.py", line 114, in run
+    session = self.get_conn(headers)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/hooks/http.py", line 68, in get_conn
+    conn = self.get_connection(self.http_conn_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/base.py", line 68, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/connection.py", line 410, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `stack-data-pipeline01` isn't defined
+[2022-10-05 13:16:29,535] {taskinstance.py:1282} INFO - Marking task as FAILED. dag_id=dag_combustivel, task_id=get_op, execution_date=20100701T000000, start_date=20221005T131629, end_date=20221005T131629
+[2022-10-05 13:16:29,549] {standard_task_runner.py:92} ERROR - Failed to execute job 45 for task get_op
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/task/task_runner/standard_task_runner.py", line 85, in _start_by_fork
+    args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 298, in task_run
+    _run_task_by_selected_method(args, dag, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 107, in _run_task_by_selected_method
+    _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 184, in _run_raw_task
+    error_file=args.error_file,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 70, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1334, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1460, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1516, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/operators/http.py", line 106, in execute
+    response = http.run(self.endpoint, self.data, self.headers, self.extra_options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/hooks/http.py", line 114, in run
+    session = self.get_conn(headers)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/hooks/http.py", line 68, in get_conn
+    conn = self.get_connection(self.http_conn_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/base.py", line 68, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/connection.py", line 410, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `stack-data-pipeline01` isn't defined
+[2022-10-05 13:16:29,599] {local_task_job.py:154} INFO - Task exited with return code 1
+[2022-10-05 13:16:29,649] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,27 @@
+[2022-10-05 17:19:05,896] {taskinstance.py:1037} INFO - Dependencies all met for <TaskInstance: dag_combustivel.pyspark_task manual__2022-10-05T13:53:14.649144+00:00 [queued]>
+[2022-10-05 17:19:05,911] {taskinstance.py:1037} INFO - Dependencies all met for <TaskInstance: dag_combustivel.pyspark_task manual__2022-10-05T13:53:14.649144+00:00 [queued]>
+[2022-10-05 17:19:05,912] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-05 17:19:05,914] {taskinstance.py:1244} INFO - Starting attempt 1 of 1
+[2022-10-05 17:19:05,915] {taskinstance.py:1245} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-05 17:19:05,930] {taskinstance.py:1264} INFO - Executing <Task(DataprocSubmitJobOperator): pyspark_task> on 2022-10-05 13:53:14.649144+00:00
+[2022-10-05 17:19:05,937] {standard_task_runner.py:52} INFO - Started process 21270 to run task
+[2022-10-05 17:19:05,948] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'dag_combustivel', 'pyspark_task', 'manual__2022-10-05T13:53:14.649144+00:00', '--job-id', '84', '--raw', '--subdir', 'DAGS_FOLDER/dag_combustive.py', '--cfg-path', '/tmp/tmpex8tvwt_', '--error-file', '/tmp/tmptp37sxk5']
+[2022-10-05 17:19:05,952] {standard_task_runner.py:77} INFO - Job 84: Subtask pyspark_task
+[2022-10-05 17:19:06,055] {logging_mixin.py:109} INFO - Running <TaskInstance: dag_combustivel.pyspark_task manual__2022-10-05T13:53:14.649144+00:00 [running]> on host 1445d51ba90b
+[2022-10-05 17:19:06,150] {taskinstance.py:1431} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=dag_combustivel
+AIRFLOW_CTX_TASK_ID=pyspark_task
+AIRFLOW_CTX_EXECUTION_DATE=2022-10-05T13:53:14.649144+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-10-05T13:53:14.649144+00:00
+[2022-10-05 17:19:06,152] {dataproc.py:1878} INFO - Submitting job
+[2022-10-05 17:19:07,231] {dataproc.py:1890} INFO - Job 25c6c95b-7bb1-4c70-a616-fb386a7c99f3 submitted successfully.
+[2022-10-05 17:19:07,254] {dataproc.py:1903} INFO - Waiting for job 25c6c95b-7bb1-4c70-a616-fb386a7c99f3 to complete
+[2022-10-05 17:19:51,373] {dataproc.py:1907} INFO - Job 25c6c95b-7bb1-4c70-a616-fb386a7c99f3 completed successfully.
+[2022-10-05 17:19:51,412] {taskinstance.py:1282} INFO - Marking task as SUCCESS. dag_id=dag_combustivel, task_id=pyspark_task, execution_date=20221005T135314, start_date=20221005T171905, end_date=20221005T171951
+[2022-10-05 17:19:51,436] {local_task_job.py:212} WARNING - State of this instance has been externally set to success. Terminating instance.
+[2022-10-05 17:19:51,441] {process_utils.py:124} INFO - Sending Signals.SIGTERM to group 21270. PIDs of all processes in the group: [21270]
+[2022-10-05 17:19:51,443] {process_utils.py:75} INFO - Sending the signal Signals.SIGTERM to group 21270
+[2022-10-05 17:19:51,444] {process_utils.py:70} INFO - Process psutil.Process(pid=21270, status='terminated', exitcode=0, started='17:19:05') (21270) terminated with exit code 0
